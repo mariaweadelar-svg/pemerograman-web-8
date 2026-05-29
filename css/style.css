@@ -146,11 +146,6 @@ footer strong {
     }
 }
 
-/* ========================= */
-/* TAMBAHAN BARU */
-/* MEDIA QUERY LANDSCAPE */
-/* ========================= */
-
 @media (max-width: 768px) and (orientation: landscape) {
 
     header {
