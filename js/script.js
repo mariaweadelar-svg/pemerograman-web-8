@@ -1,9 +1,5 @@
 console.log("Website CV berhasil terhubung dengan JavaScript!");
-// //tampilan console.log 
-// console.log("CV Online Siap");
-// //Deklarasikan const
-// const namaLengkap = "Maria Wea Dela Rosario";
-// console.log(namaLengkap);
+document.addEventListener("DOMContentLoaded", function () {
 
 const heading = document.querySelector("h1");
 console.log(heading);
@@ -128,3 +124,90 @@ skills.push("Analisis Data Kesehatan");
 console.log("Jumlah skills:", skills.length);
 console.log("Skills terbaru:", skills);
 
+const hamburger = document.querySelector("#hamburger");
+const nav = document.querySelector("nav");
+
+hamburger.addEventListener("click", function () {
+
+    nav.classList.toggle("active");
+
+    const isExpanded =
+        nav.classList.contains("active");
+
+    hamburger.setAttribute(
+        "aria-expanded",
+        isExpanded
+    );
+
+    hamburger.setAttribute(
+        "aria-label",
+        isExpanded
+            ? "Tutup Menu"
+            : "Buka Menu"
+    );
+
+});
+
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const target =
+            this.getAttribute("href");
+
+        if (target.startsWith("#")) {
+
+            document
+                .querySelector(target)
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+    });
+
+});
+
+
+const semuaKartu = document.querySelectorAll(".kartu");
+semuaKartu.forEach(kartu => {
+
+    kartu.addEventListener("mouseover", function () {
+
+        kartu.style.boxShadow =
+            "0 8px 20px rgba(0, 0, 0, 0.3)";
+    });
+
+    kartu.addEventListener("mouseout", function () {
+
+        kartu.style.boxShadow =
+            "0 2px 8px rgba(0, 0, 0, 0.08)";
+
+    });
+
+});
+
+const containerKeahlian = document.querySelector(
+    "#keahlian .kartu-container"
+);
+
+containerKeahlian.addEventListener("click", function(event) {
+
+    if (event.target.tagName === "H3") {
+
+        console.log(
+            "Judul yang diklik:",
+            event.target.textContent
+        );
+
+    }
+
+});
+
+console.log(
+    "DOM berhasil dimuat dan seluruh inisiasi selesai."
+);
+});

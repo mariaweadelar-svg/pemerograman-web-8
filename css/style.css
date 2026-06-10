@@ -165,3 +165,37 @@ footer strong {
     padding: 5px;
     border-radius: 5px;
 }
+
+#hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: rgb(248, 248, 248);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    #hamburger {
+        display: block;
+        margin: 10px auto;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.kartu {
+    transition: box-shadow 0.3s ease;
+}
